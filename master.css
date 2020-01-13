@@ -64,7 +64,7 @@ input[type=text] {
   color: #212121;
   padding: 5px;
   width: 64%;
-  height: 20px;
+  min-height: 20px;
   font-family: sans-serif;
   margin-left: 18%;
 }
