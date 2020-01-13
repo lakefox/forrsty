@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Forrsty</title>
+    <link rel="stylesheet" href="./master.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="controls">
+      <div id="title">
+        Create a Forrsty URL
+      </div>
+      <div id="contents">
+        <div class="el">
+          <div class="label">
+            Select a Background
+          </div>
+          <select id="bg">
+            <option value="ipod">IPod</option>
+            <option value="polaroid">Polaroid</option>
+          </select>
+        </div>
+        <div class="el">
+          <div class="label">
+            Add a SoundCloud Playlist ID
+          </div>
+          <input type="text" id="id" placeholder="483718232">
+        </div>
+        <div class="el">
+          <div class="label">
+            Add keywords for Giphy
+          </div>
+          <input type="text" id="seed" placeholder="vintage vaporwave vhs boy girl">
+        </div>
+      </div>
+
+      <div id="gen" onclick="run()">
+        Generate
+      </div>
+
+      <div id="result">
+
+      </div>
+    </div>
+    <script type="text/javascript">
+      function run() {
+        let bg = document.querySelector("#bg").value;
+        let id = document.querySelector("#id").value;
+        let seed = document.querySelector("#seed").value;
+
+        let link = `forrsty.com/${bg}/?id=${id}&seed=${seed}#0`;
+
+        document.querySelector("#result").innerHTML = link;
+      }
+    </script>
+  </body>
+</html>

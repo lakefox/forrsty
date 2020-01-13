@@ -1,0 +1,16 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  background: #c9dea8;
+}
+#gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #101010;
+  border: 10px solid #fff9de;
+  width: 400px;
+  height: 400px;
+  border-bottom-width: 100px;
+}
