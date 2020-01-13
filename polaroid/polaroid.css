@@ -14,3 +14,11 @@ html,body {
   height: 400px;
   border-bottom-width: 100px;
 }
+#logo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #00000045;
+  font-size: 80px;
+  font-family: 'Josefin Sans', sans-serif;
+}
