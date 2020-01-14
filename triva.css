@@ -7,7 +7,8 @@
 #question {
   width: calc(100% - 80px);
   height: 120px;
-  background: #ccc;
+  background: #212121;
+  color: #ccc;
   border-radius: 20px;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
   font-family: 'Public Sans', sans-serif;

@@ -1,0 +1,36 @@
+html,body {
+  margin: 0;
+  padding: 0;
+  background: url("./EOHc-NQWAAM1RnO.jpeg");
+  background-size: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+#gif {
+  position: absolute;
+  left: 585px;
+  top: 343px;
+  background: #101010;
+  border: none;
+  width: 85px;
+  height: 73px;
+}
+#logo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #0000009c;
+  font-size: 80px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+#container {
+  position: absolute;
+  right: -29%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 610px;
+  display: flex;
+}
