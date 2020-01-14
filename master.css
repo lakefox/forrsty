@@ -39,7 +39,7 @@ html,body {
   margin-bottom: 20px;
 }
 
-input[type=text] {
+input {
   margin-left: 10px;
   background: #bbb;
   border: none;
