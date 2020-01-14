@@ -1,9 +1,13 @@
 // Sample URL
 
-// /ipod/?id=483718232&seed=vintage vaporwave vhs boy girl#0
+// /ipod/?id=483718232&seed=vintage vaporwave vhs boy girl&to=263478169#0
 
 let gifQue = [];
 let questions = [];
+
+setTimeout(() => {
+  window.location.reload();
+},parseInt(to || "3600000"));
 
 window.location.hash = parseInt(window.location.hash.slice(1)) || 0
 loadTriva();

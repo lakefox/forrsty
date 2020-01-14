@@ -19,6 +19,7 @@
           <select id="bg">
             <option value="ipod">IPod</option>
             <option value="polaroid">Polaroid</option>
+            <option value="forrest">Forrest</option>
           </select>
         </div>
         <div class="el">
@@ -32,6 +33,12 @@
             Add keywords for Giphy
           </div>
           <input type="text" id="seed" placeholder="vintage vaporwave vhs boy girl">
+        </div>
+        <div class="el">
+          <div class="label">
+            Add restart time in milliseconds
+          </div>
+          <input type="number" id="to" placeholder="192990000">
         </div>
       </div>
 
@@ -48,8 +55,9 @@
         let bg = document.querySelector("#bg").value;
         let id = document.querySelector("#id").value;
         let seed = document.querySelector("#seed").value;
+        let to = document.querySelector("#to").value;
 
-        let link = `https://forrsty.com/${bg}/?id=${id}&seed=${seed}#0`;
+        let link = `https://forrsty.com/${bg}/?id=${id}&seed=${seed}&to=${to}#0`;
 
         document.querySelector("#result").innerHTML = link;
       }
