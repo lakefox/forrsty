@@ -1,0 +1,33 @@
+#triva {
+  width: 500px;
+  height: 610px;
+  margin-left: -120px;
+  color: #212121;
+}
+#question {
+  width: calc(100% - 80px);
+  height: 120px;
+  background: #ccc;
+  border-radius: 20px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  font-family: 'Public Sans', sans-serif;
+  padding: 40px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.answer {
+  width: calc(100% - 10px);
+  height: 50px;
+  background: #ccc;
+  margin-top: 25px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  font-size: 20px;
+  line-height: 50px;
+  padding-left: 10px;
+  font-family: 'Public Sans', sans-serif;
+  transition: 500ms linear;
+}
+.correct {
+  background: #74d478;
+}

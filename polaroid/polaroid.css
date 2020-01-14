@@ -1,13 +1,9 @@
 html,body {
   margin: 0;
   padding: 0;
-  background: #c9dea8;
+  background: #606b8b;
 }
 #gif {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
   background: #101010;
   border: 10px solid #fff9de;
   width: 400px;
@@ -21,4 +17,12 @@ html,body {
   color: #00000045;
   font-size: 80px;
   font-family: 'Josefin Sans', sans-serif;
+}
+#container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 610px;
+  display: flex;
 }
