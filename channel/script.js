@@ -5,7 +5,8 @@ fetch("https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/
 }).then((res) => {
   streams = csvJSON(res);
   console.log(streams);
-  channelId = (parseInt(window.location.hash.slice(1)) || parseInt(Math.random()*streams.length));
+  channelId = (parseInt(window.location.hash.slice(1))+1 || parseInt(Math.random()*streams.length));
+  channelId -= 1;
   window.location.hash = channelId;
   load(channelId);
   startChat();
@@ -58,13 +59,11 @@ function startChat() {
   fx = new fox("forrsty", channelId.toString(), (msg, senderId)=>{
     // Handle the msg
     console.log(msg,senderId);
-    if (msg != `{"CONNECTED":true}`) {
-      document.querySelector("#chatBox").innerHTML += `
-        <div class="other">
-          ${msg}
-        </div>
-      `;
-    }
+    document.querySelector("#chatBox").innerHTML += `
+      <div class="other">
+        ${msg}
+      </div>
+    `;
   }, "https://lake-4fwweg8qitsg.runkit.sh/");
 }
 
@@ -76,7 +75,6 @@ function send() {
     </div>
   `;
   document.querySelector("#chatText").innerHTML = "";
-  document.querySelector("#chatText").blur();
 }
 
 document.querySelector("#chatText").addEventListener("keydown", (e) => {
