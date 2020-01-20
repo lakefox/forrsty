@@ -1,0 +1,105 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #212121;
+  overflow-x: hidden;
+  position: relative;
+}
+#logo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #0000009c;
+  font-size: 80px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#player {
+  transform-origin: left top;
+  border: none;
+}
+#content {
+  width: 700px;
+  max-width: 90%;
+  margin: auto;
+  margin-bottom: 200px;
+}
+
+#discord {
+  width: 100%;
+  height: 500px;
+}
+
+#name {
+  font-size: 80px;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #fff;
+  margin: 30px;
+  margin-bottom: 0;
+}
+
+#creator {
+  font-size: 20px;
+  color: #696969;
+  margin-top: -20px;
+  margin-bottom: 11px;
+  font-family: monospace;
+  text-align: right;
+}
+
+#chatBox {
+  width: 100%;
+  height: 500px;
+  background: #000000;
+  overflow-y: auto;
+  padding-bottom: 100px;
+}
+
+#chatText {
+  width: calc(48%);
+  height: 40px;
+  padding: 5px;
+  position: relative;
+  color: #eee;
+  font-family: sans-serif;
+  margin: auto;
+  margin-top: -62px;
+  border-radius: 10px;
+  background: #3f51b580;
+  overflow-y: auto;
+}
+
+#enter {
+  background: #4ba764;
+  width: 50px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  color: #eee;
+  font-size: 15px;
+  font-family: sans-serif;
+  cursor: pointer;
+  float: right;
+  margin-top: -50px;
+  z-index: 10;
+  height: 40px;
+  margin-right: 10px;
+  line-height: 40px;
+}
+.other {
+    color: #eee;
+    width: 90%;
+    background: #212121;
+    padding: 10px;
+    font-family: sans-serif;
+    margin-top: 20px;
+}
+.you {
+  color: #eee;
+  width: 90%;
+  background: #3f205b;
+  padding: 10px;
+  font-family: sans-serif;
+  margin: auto;
+  margin-top: 20px;
+}
