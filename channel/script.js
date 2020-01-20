@@ -58,11 +58,13 @@ function startChat() {
   fx = new fox("forrsty", channelId.toString(), (msg, senderId)=>{
     // Handle the msg
     console.log(msg,senderId);
-    document.querySelector("#chatBox").innerHTML += `
-      <div class="other">
-        ${msg}
-      </div>
-    `;
+    if (msg != `{"CONNECTED":true}`) {
+      document.querySelector("#chatBox").innerHTML += `
+        <div class="other">
+          ${msg}
+        </div>
+      `;
+    }
   }, "https://lake-4fwweg8qitsg.runkit.sh/");
 }
 
@@ -74,6 +76,7 @@ function send() {
     </div>
   `;
   document.querySelector("#chatText").innerHTML = "";
+  document.querySelector("#chatText").blur();
 }
 
 document.querySelector("#chatText").addEventListener("keydown", (e) => {
