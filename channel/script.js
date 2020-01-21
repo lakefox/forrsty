@@ -1,6 +1,6 @@
 let streams, channelId;
 
-fetch("https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vSdSmRrcs_Dem0YjK_9z9iFDAqRiN21kY-e0DBx-Z4l-d3c163HdUok1nHj26qpJjn4_w7eMcd0UQJW/pub?gid=950474769&single=true&output=csv", {"credentials":"omit","headers":{"accept":"*/*","accept-language":"en-US,en;q=0.9","sec-fetch-mode":"cors","sec-fetch-site":"cross-site"},"referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}).then((csv) => {
+fetch("https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vSdSmRrcs_Dem0YjK_9z9iFDAqRiN21kY-e0DBx-Z4l-d3c163HdUok1nHj26qpJjn4_w7eMcd0UQJW/pub?gid=294828327&single=true&output=csv", {"credentials":"omit","headers":{"accept":"*/*","accept-language":"en-US,en;q=0.9","sec-fetch-mode":"cors","sec-fetch-site":"cross-site"},"referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}).then((csv) => {
   return csv.text()
 }).then((res) => {
   streams = csvJSON(res);
