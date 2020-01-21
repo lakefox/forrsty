@@ -6,7 +6,7 @@ html,body {
 #controls {
   background: #191919;
   width: 700px;
-  height: 500px;
+  height: 700px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -34,6 +34,7 @@ html,body {
 #bg {
   background: #bbb;
   margin-left: 10px;
+  width: 256px;
 }
 .el {
   margin-bottom: 20px;

@@ -29,15 +29,23 @@ function render(channels) {
   let html = "";
   for (var i = 0; i < channels.length; i++) {
     let stream = channels[i];
-    html += `
-    <div class="item">
-      <div class="player_constrainer" style="height: ${stream.height*(300/parseInt(stream.width))}px">
-        <iframe src="${stream["Url of Stream"]}" style="width: ${stream.width}px; height: ${stream.height}px; transform: scale(${300/parseInt(stream.width)});" class="preview"></iframe>
-      </div>
-      <a class="id" target="_blank" href="https://forrsty.com/channel#${stream.index}">
-        ${stream["Name of Stream"]} - Created By ${stream["Your Name"]}
-      </a>
-    </div>`;
+    if (stream["Timestamp"] != "") {
+      let url = new URL(stream["Url of Stream"]);
+      if (url.search == "") {
+        url.search += "?mute=true";
+      } else {
+        url.search += "&mute=true";
+      }
+      html += `
+      <div class="item">
+        <div class="player_constrainer" style="height: ${stream.height*(300/parseInt(stream.width))}px">
+          <iframe src="${url.href}" style="width: ${stream.width}px; height: ${stream.height}px; transform: scale(${300/parseInt(stream.width)});" class="preview"></iframe>
+        </div>
+        <a class="id" target="_blank" href="https://forrsty.com/channel#${stream.index}">
+          ${stream["Name of Stream"]} - Created By ${stream["Your Name"]}
+        </a>
+      </div>`;
+    }
   }
   document.querySelector("#content").innerHTML = html;
 }

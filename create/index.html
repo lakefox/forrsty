@@ -9,59 +9,114 @@
   <body>
     <div id="controls">
       <div id="title">
-        Create a Forrsty URL
+        Create a Forrsty Channel
       </div>
       <div id="contents">
         <div class="el">
           <div class="label">
-            Select a Background
+            You cannot update you channel once it's submitted please make sure everything is correct! Please note that if you channel plays any kind of audio when it is loaded on the main page "&mute=true" will be passed in the URL of your site, if you play audio with the "&mute=true" flag your site will be banned.
+          </div>
+        </div>
+        <div class="el">
+          <div class="label">
+            Your Name
+          </div>
+          <input type="text" id="name">
+        </div>
+        <div class="el">
+          <div class="label">
+            Channel Name
+          </div>
+          <input type="text" id="channelName">
+        </div>
+        <div class="el">
+          <div class="label">
+            Url to Stream
+          </div>
+          <input type="text" id="url">
+        </div>
+        <div class="el">
+          <div class="label">
+            Width
+          </div>
+          <input type="number" id="width">
+        </div>
+        <div class="el">
+          <div class="label">
+            Height
+          </div>
+          <input type="number" id="height">
+        </div>
+        <div class="el">
+          <div class="label">
+            Select a Category
           </div>
           <select id="bg">
-            <option value="ipod">IPod</option>
-            <option value="polaroid">Polaroid</option>
-            <option value="forrest">Forrest</option>
-            <option value="building">Building</option>
+            <option value="Music">Music</option>
+            <option value="Game">Game</option>
+            <option value="Art">Art</option>
+            <option value="Live">Live</option>
+            <option value="Video">Video</option>
+            <option value="Other">Other</option>
           </select>
-        </div>
-        <div class="el">
-          <div class="label">
-            Add a SoundCloud Playlist ID
-          </div>
-          <input type="text" id="id" placeholder="483718232">
-        </div>
-        <div class="el">
-          <div class="label">
-            Add keywords for Giphy
-          </div>
-          <input type="text" id="seed" placeholder="vintage vaporwave vhs boy girl">
-        </div>
-        <div class="el">
-          <div class="label">
-            Add restart time in milliseconds
-          </div>
-          <input type="number" id="to" placeholder="192990000">
         </div>
       </div>
 
       <div id="gen" onclick="run()">
-        Generate
-      </div>
-
-      <div id="result">
-
+        Submit
       </div>
     </div>
     <script type="text/javascript">
       function run() {
-        let bg = document.querySelector("#bg").value;
-        let id = document.querySelector("#id").value;
-        let seed = document.querySelector("#seed").value;
-        let to = document.querySelector("#to").value;
+        let category = document.querySelector("#bg").value.trim();
+        let yourName = document.querySelector("#name").value.trim();
+        let streamName = document.querySelector("#channelName").value.trim();
+        let url = document.querySelector("#url").value.trim();
+        let width = document.querySelector("#width").value.trim();
+        let height = document.querySelector("#height").value.trim();
 
-        let link = `https://forrsty.com/${bg}/?id=${id}&seed=${seed}&to=${to}#0`;
+        if (
+          category == "" ||
+          yourName == "" ||
+          streamName == "" ||
+          url == "" ||
+          width == "" ||
+          height == ""
+        ) {
+          alert("Please fill in all fields!");
+        } else {
+            fetch(`https://cors-anywhere.herokuapp.com/https://docs.google.com/forms/d/e/1FAIpQLSeS9KgIsN8qiNPJeDzTv8suhgSCaa2VSN-zMK2RjpA0jOVKFw/formResponse?usp=pp_url&entry.1752193546=${yourName}&entry.1512812515=${streamName}&entry.1183024438=${url}&entry.154268275=${width}&entry.555160823=${height}&entry.454014958=${category}&submit=Submit`, {"credentials":"omit","headers":{"accept":"*/*","accept-language":"en-US,en;q=0.9","sec-fetch-mode":"cors","sec-fetch-site":"cross-site"},"referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"});
 
-        document.querySelector("#result").innerHTML = link;
+            fetch("https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/d/e/2PACX-1vSdSmRrcs_Dem0YjK_9z9iFDAqRiN21kY-e0DBx-Z4l-d3c163HdUok1nHj26qpJjn4_w7eMcd0UQJW/pub?gid=950474769&single=true&output=csv", {"credentials":"omit","headers":{"accept":"*/*","accept-language":"en-US,en;q=0.9","sec-fetch-mode":"cors","sec-fetch-site":"cross-site"},"referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"}).then((csv) => {
+              return csv.text()
+            }).then((res) => {
+              let streams = csvJSON(res);
+              console.log(streams);
+              for (var i = 0; i < streams.length; i++) {
+                let stream = streams[i]
+                if (stream["Url of Stream"] == url && stream["Your Name"] == yourName && stream["Name of Stream"] == streamName) {
+                  window.location.href = "https://forrsty.com/channel#"+i;
+                }
+              }
+            });
+        }
+      }
+      function csvJSON(csv){
+        var lines=csv.split("\n");
+        var result = [];
+        var headers=lines[0].split(",");
+        for(var i=1;i<lines.length;i++){
+          var obj = {};
+          var currentline=lines[i].split(",");
+          for(var j=0;j<headers.length;j++){
+             obj[headers[j]] = currentline[j];
+          }
+          result.push(obj);
+        }
+        return result; //JavaScript object
+        // return JSON.stringify(result); //JSON
       }
     </script>
   </body>
 </html>
+<!--  -->
