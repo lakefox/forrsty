@@ -14,7 +14,7 @@ loadTriva();
 loadGiphy(seed,parseInt(window.location.hash.slice(1)));
 
 window.onload = () => {
-  if (typeof mute != "undefined") {
+  if (typeof mute == "undefined") {
       document.querySelector("#soundcloud").src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/${id}&color=%23c1c5cb&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`;
   }
 }
