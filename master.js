@@ -13,8 +13,10 @@ window.location.hash = parseInt(window.location.hash.slice(1)) || 0
 loadTriva();
 loadGiphy(seed,parseInt(window.location.hash.slice(1)));
 
-if (typeof mute != "undefined") {
-    document.querySelector("#soundcloud").src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/${id}&color=%23c1c5cb&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`;
+window.onload = () => {
+  if (typeof mute != "undefined") {
+      document.querySelector("#soundcloud").src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/${id}&color=%23c1c5cb&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`;
+  }
 }
 
 function loadGiphy(search,offset) {
