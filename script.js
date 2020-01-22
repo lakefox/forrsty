@@ -8,12 +8,13 @@ fetch("https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/
   let categories = [];
   for (var i = 0; i < streams.length; i++) {
     streams[i].index = i;
+    delete streams[i]["Password"];
     let category = streams[i]["Category"];
     if (categories.indexOf(category) == -1) {
       categories.push(category);
     }
   }
-  let html = "";
+  let html = `<option value="All">All</option>`;
   for (var i = 0; i < categories.length; i++) {
     html += `<option value="${categories[i]}">${categories[i]}</option>`;
   }
@@ -24,6 +25,21 @@ fetch("https://cors-anywhere.herokuapp.com/https://docs.google.com/spreadsheets/
 document.querySelector("#categories").addEventListener("change",() => {
 
 });
+
+function sort() {
+  let category = document.querySelector("#categories").value;
+  let search = document.querySelector("#search").value;
+  let correct = [];
+  for (var i = 0; i < streams.length; i++) {
+    let stream = streams[i];
+    if (category == "All" && (stream["Name of Stream"]+stream["Your Name"]).toLowerCase().search(search.toLowerCase()) > -1) {
+      correct.push(stream);
+    } else if (stream["Category"] == category && (stream["Name of Stream"]+stream["Your Name"]).toLowerCase().search(search.toLowerCase()) > -1) {
+      correct.push(stream);
+    }
+  }
+  render(correct);
+}
 
 function render(channels) {
   let html = "";
