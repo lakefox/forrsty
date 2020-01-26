@@ -61,17 +61,17 @@ function startChat() {
     console.log(msg,senderId);
     document.querySelector("#chatBox").innerHTML += `
       <div class="other">
-        ${msg}
+        ${msg.trim()}
       </div>
     `;
   }, "https://lake-4fwweg8qitsg.runkit.sh/");
 }
 
 function send() {
-  fx.msg(document.querySelector("#chatText").innerHTML);
+  fx.msg(document.querySelector("#chatText").innerHTML.trim());
   document.querySelector("#chatBox").innerHTML += `
     <div class="you">
-      ${document.querySelector("#chatText").innerHTML}
+      ${document.querySelector("#chatText").innerHTML.trim()}
     </div>
   `;
   document.querySelector("#chatText").innerHTML = "";
